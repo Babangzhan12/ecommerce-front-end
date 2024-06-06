@@ -10,7 +10,7 @@ const Sidebar = () => {
         {
             label: "Dashboard",
             icon: "pi pi-th-large",
-            template: (item,options) => {
+            template: (item, options) => {
                 return (
                     <Link to="/admin/dashboard" className={options.className}>
                         <span className={options.iconClassName}></span>

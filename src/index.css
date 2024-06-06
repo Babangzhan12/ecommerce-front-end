@@ -48,27 +48,79 @@ html {
   margin-left: 16px;
 }
 
-.p-menu {
+.sidebar .p-menu {
   border: 0;
   width: 160px;
   position: relative;
 } 
 
-.p-menu .p-menuitem {
-  padding: 12px 16px;
-}
-
-.p-menu .p-menuitem a {
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: #000;
   text-decoration: none;
-  color: #333;
+  font-size: 14px;
+  transition: background-color 0.1s;
 }
 
-.p-menu .p-menuitem a:hover {
-  background-color: #e6e6e6; /* Warna latar belakang saat hover pada item menu */
+.sidebar a:hover {
+  background-color: #f0f0f0;
 }
 
-.p-menu .p-menuitem .p-menuitem-icon {
+.sidebar a span {
   margin-right: 10px;
+} 
+
+.login-panel {
+  width: 300px;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 16px;
+  text-align: center;
+  margin: 32px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  margin-left: 160px;
+  padding-top: 64px;
+}
+
+.content-inner {
+  margin: 16px;
+}
+
+.content-header {
+  margin-bottom: 16px;
+}
+
+.content-form {
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
 }
 
 
