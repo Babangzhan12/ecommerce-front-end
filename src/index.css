@@ -101,8 +101,54 @@ html {
   border-radius: 4px;
 }
 
+.form-label {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.my-progress-bar {
+  z-index: 10000;
+  height: 4px!important;
+}
+
+.cell-link {
+  text-decoration: none;
+  color: #2478dd;
+  font-weight: 600;
+}
+
+.cell-link:hover{
+  text-decoration: underline;
+}
+
+.detail-label {
+  width: 160px;
+}
+
+.content-detail {
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
 .input-container {
   margin-bottom: 20px;
+}
+
+.image-display-wrapper {
+  width: 256px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.image-display {
+  max-width: 100%;
+}
+
+.icon-display.pi {
+  font-size: 128px;
+  display: inline-block;
+  color: #2478dd;
 }
 
 input[type="text"],
