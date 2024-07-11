@@ -39,6 +39,20 @@ html {
   margin-left: 16px;
 }
 
+.header .user-info {
+  margin-right: 16px;
+  margin-left: 16px;
+  height: 64px;
+}
+
+.header .user-info a.profile {
+  line-height: 64px;
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .sidebar {
   position: fixed;
   left: 0;
@@ -153,6 +167,25 @@ html {
   font-size: 128px;
   display: inline-block;
   color: #2478dd;
+}
+
+.error-page {
+  width: 600px;
+  padding: 32px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 32px auto;
+}
+
+.error-page h1 {
+  margin: 0;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.error-page h3 {
+  font-weight: bold;
 }
 
 /* input[type="text"], */

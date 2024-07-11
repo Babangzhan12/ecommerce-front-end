@@ -5,6 +5,8 @@ import COVER_IMAGE from "../assets/images/login-background.jpg";
 import GOOGLE_ICON from "../assets/images/google-icon.png";
 import BRAND_ICON from "../assets/images/logo-brand.jpg";
 import axios from "axios";
+import { APP_BASE_URL } from "../configs/constants";
+import {Message} from "primereact/message";
 
 const SigninPage = () => {
   const [username, setUsername] = useState("");
@@ -15,6 +17,9 @@ const SigninPage = () => {
   const [isRegistering, setIsRegistering] = useState(false);
 
   const { signin } = useAuth();
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -53,16 +58,24 @@ const SigninPage = () => {
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/auth/signup", {
+      const response = await axios.post(`${APP_BASE_URL}/auth/signup`, {
         username,
         password,
         name,
         email,
       });
-      console.log("Registration succesful: ", response.data);
+      if (!response.ok){
+        setError(true);
+        setErrorMessage(response.data.message);
+        return;
+      }
+      const data = await  response.json();
+      console.log(data);
       setIsRegistering(false);
     } catch (error) {
-      console.error("Registration failed: ", error);
+      console.error(error);
+      setError(true);
+      setErrorMessage("Terjadi kesalahan dalam memproses permintaan");
     }
   };
 
@@ -114,12 +127,10 @@ const SigninPage = () => {
       className="w-42 h-auto "
       style={{ marginBottom: "-100px" }}
       />
-        {/* <h1 className="w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold mr-auto">
-          Interactive Brand
-        </h1> */}
         <div className="w-full flex flex-col max-w-[500px]">
           {isRegistering ? (
             <form onSubmit={handleRegisterSubmit}>
+              {error && <Message severity="error" text={errorMessage}/>}
               <div className="w-full flex flex-col">
                 <input
                   type="text"

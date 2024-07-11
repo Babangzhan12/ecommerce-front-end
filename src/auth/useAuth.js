@@ -23,9 +23,15 @@ export const AuthProvider = ({children}) => {
             const data = await response.json();
             localStorage.setItem("user", JSON.stringify(data));
             setUser(data);
-            navigate("/admin/dashboard", {
-                replace: true
-            });
+            if (user.role === "admin") {
+                navigate("/admin/dashboard", {
+                    replace: true
+                });
+            } else if (user.role === "user"){
+                navigate("/user/dashboard", {
+                    replace: true
+                });
+            }
         } catch (error) {
             console.error(error);
         }
